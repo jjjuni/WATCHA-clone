@@ -7,7 +7,7 @@ function Sidebar() {
   return (
     <StyledSidebar>
       <S.WATCHA to={'/'}>
-        <S.Logo src='/src/logo/WATCHA.svg'/>
+        <S.Logo src='/public/WATCHA.svg'/>
       </S.WATCHA>
       <SidebarContents>
         <S.StyledLink to={'/search'} fontSize={'14px'} padding={'8px 12px'}>

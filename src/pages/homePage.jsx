@@ -24,7 +24,6 @@ function HomePage() {
     queryFn: () => getMovies("popular"),
   });
 
-  console.log(popularMovieData)
   const [mainMovie, setMainMovie] = useState(popularMovieData?.data?.results[Math.floor(Math.random() * 20)]);
 
   useEffect(() => {
