@@ -75,7 +75,7 @@ function SignUpPage() {
             $border={(emailValue || isSubmitted) && errors.email ? '2px solid #e73e3e' : '2px solid black'}
             />
             {(emailValue || isSubmitted) && 
-              <S.ValidationIcon src={errors.email? '/src/icon/x_circle.svg' : '/src/icon/check_circle.svg'}/>
+              <S.ValidationIcon src={errors.email? '/icon/x_circle.svg' : '/icon/check_circle.svg'}/>
             }
           </S.InputDiv >
           <S.InputDiv>
@@ -83,7 +83,7 @@ function SignUpPage() {
             $border={(passwordValue || isSubmitted) && errors.password ? '2px solid #e73e3e' : '2px solid black'}
             />
             {(passwordValue || isSubmitted) && 
-              <S.ValidationIcon src={errors.password? '/src/icon/x_circle.svg' : '/src/icon/check_circle.svg'}/>
+              <S.ValidationIcon src={errors.password? '/icon/x_circle.svg' : '/icon/check_circle.svg'}/>
             }
           </S.InputDiv>
           <S.InputDiv>
@@ -91,7 +91,7 @@ function SignUpPage() {
             $border={(!passwordCheckValue && isSubmitted) || (passwordCheckValue && (passwordCheckValue !== passwordValue)) ? '2px solid #e73e3e' : '2px solid black'}
             />
             {(passwordCheckValue || isSubmitted) && 
-              <S.ValidationIcon src={!passwordCheckValue || (passwordCheckValue !== passwordValue)? '/src/icon/x_circle.svg' : '/src/icon/check_circle.svg'}/>
+              <S.ValidationIcon src={!passwordCheckValue || (passwordCheckValue !== passwordValue)? '/icon/x_circle.svg' : '/icon/check_circle.svg'}/>
             }
           </S.InputDiv>
           <S.InputDiv style={{margin: '15px 0 0'}}>
@@ -99,14 +99,14 @@ function SignUpPage() {
             $border={(nameValue || isSubmitted) && errors.username ? '2px solid #e73e3e' : '2px solid black'}
             />
             {(nameValue || isSubmitted) && 
-              <S.ValidationIcon src={errors.username? '/src/icon/x_circle.svg' : '/src/icon/check_circle.svg'}/>
+              <S.ValidationIcon src={errors.username? '/icon/x_circle.svg' : '/icon/check_circle.svg'}/>
             }
           </S.InputDiv>
           <S.InputDiv>
             <S.InputText type='text' placeholder='휴대전화번호' maxLength={11} {...register("phone")}
             $border={(phoneValue || isSubmitted) && errors.phone ? '2px solid #e73e3e' : '2px solid black'}/>
             {(phoneValue || isSubmitted) && 
-              <S.ValidationIcon src={errors.phone? '/src/icon/x_circle.svg' : '/src/icon/check_circle.svg'}/>
+              <S.ValidationIcon src={errors.phone? '/icon/x_circle.svg' : '/icon/check_circle.svg'}/>
             }
           </S.InputDiv>
 

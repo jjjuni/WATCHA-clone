@@ -17,25 +17,25 @@ function MovieCategoryPage() {
           <MovieCategoryBox>
             <MovieCategory to={'./now_playing'}>
               <Image
-                src={"/src/images/마녀배달부 키키.jpg"}
+                src={"/images/마녀배달부 키키.jpg"}
               ></Image>
               <ImageText>현재 상영중인</ImageText>
             </MovieCategory>
             <MovieCategory to={'./popular'}>
               <Image
-                src={"/src/images/센과 치히로.jpg"}
+                src={"/images/센과 치히로.jpg"}
               ></Image>
               <ImageText>인기있는</ImageText>
             </MovieCategory>
             <MovieCategory to={'./top_rated'}>
               <Image
-                src={"/src/images/포뇨.jpg"}
+                src={"/images/포뇨.jpg"}
               ></Image>
               <ImageText>높은 평가를 받은</ImageText>
             </MovieCategory>
             <MovieCategory to={'./upcoming'}>
               <Image
-                src={"/src/images/토토로.jpg"}
+                src={"/images/토토로.jpg"}
               ></Image>
               <ImageText>개봉 예정중인</ImageText>
             </MovieCategory>

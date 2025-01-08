@@ -70,14 +70,14 @@ function LoginPage() {
             $border={ (emailValue || isSubmitted) && errors.email ? '2px solid #e73e3e' : '2px solid black'}
             />
             {(emailValue || isSubmitted) && 
-              <S.ValidationIcon src={errors.email? '/src/icon/x_circle.svg' : '/src/icon/check_circle.svg'}/>
+              <S.ValidationIcon src={errors.email? '/icon/x_circle.svg' : '/icon/check_circle.svg'}/>
             }
           </S.InputDiv >
           <S.InputDiv>
             <S.InputText type='password' placeholder='비밀번호 | 8~16자' maxLength={16} {...register("password")}
             $border={ (passwordValue || isSubmitted) && errors.password ? '2px solid #e73e3e' : '2px solid black'}/>
             {(passwordValue || isSubmitted) && 
-              <S.ValidationIcon src={errors.password?  '/src/icon/x_circle.svg' : '/src/icon/check_circle.svg'}/>
+              <S.ValidationIcon src={errors.password?  '/icon/x_circle.svg' : '/icon/check_circle.svg'}/>
             }
           </S.InputDiv>
           {errorMessage && <S.ErrorMessage>{errorMessage}</S.ErrorMessage>}
