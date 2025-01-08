@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 200">
+    <defs>
+        <style>.cls-1{fill:none;}.cls-2{fill:#ff0558;}</style>
+    </defs>
+    <g id="레이어_2" data-name="레이어 2">
+        <g id="WATCHA_Logo">
+            <rect class="cls-1" width="200" height="200"/>
+
+            <polygon class="cls-2" points="
+                0 61 
+                31.15 61 
+                42.34 143.74 
+                45.94 143.5 
+                59 61 
+                84 61 
+                96.53 140.14 
+                100.15 139.9 
+                112 30 
+                143 30 
+                117.07 174.05 
+                84.75 176.2 
+                73.07 102.5 
+                69.93 102.5 
+                57.97 177.98 
+                27.5 180 
+                0 61"
+            />
+        </g>
+    </g>
+</svg>
