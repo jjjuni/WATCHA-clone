@@ -53,7 +53,7 @@ function Navbar() {
     <StyledNavbar>
       <NavbarLeft>
         <S.WATCHA to={'/'}>
-          <S.Logo src={'/src/logo/WATCHA.svg'}/>
+          <S.Logo src={'/WATCHA.svg'}/>
         </S.WATCHA>
         <IconNav to={'/search'}>
           <BiSearch size="17" color="white"/> 검색
