@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import '../../font.css'
 
 export const ContentContainer = styled.div`
   padding: 60px 0px 0px 240px;
@@ -37,6 +38,7 @@ export const Title = styled.h1`
   color: #fff;
   box-sizing: border-box;
   font-size: 28px;
+  font-weight: bold;
 `
 
 export const SignTitle = styled.h1`

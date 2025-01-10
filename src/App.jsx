@@ -16,10 +16,8 @@ import "./font.css";
 import {
   createBrowserRouter,
   RouterProvider,
-  useLocation,
 } from "react-router-dom";
 
-import { useEffect } from "react";
 import ScrollToTop from "./scroll-to-top.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { LogContextProvider } from "./context/logContext.jsx";

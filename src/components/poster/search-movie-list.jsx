@@ -110,6 +110,7 @@ const SearchTitle = styled.h1`
   color: #fff;
   box-sizing: border-box;
   font-size: 20px;
+  font-weight: bold;
 `;
 
 const PosterBox = styled.div`
