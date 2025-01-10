@@ -14,4 +14,8 @@ const StyledFooter = styled.div`
     margin: 100px 0 0;
 
     background-color: var(--dark-gray);
+
+    @media (max-width: 600px) { 
+        height: 150px;
+    }
 `

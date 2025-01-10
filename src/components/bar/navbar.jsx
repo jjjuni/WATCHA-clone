@@ -62,6 +62,11 @@ function Navbar() {
           <BiMoviePlay size="17" color="white"/> 영화
         </IconNav>
       </NavbarLeft>
+      <NavbarLeftMini>
+        <S.WATCHA to={'/'}>
+          <S.Logo src={'/WATCHA.svg'}/>
+        </S.WATCHA>
+      </NavbarLeftMini>
       <SignNav>
         {isLogged? 
         <>
@@ -91,6 +96,10 @@ const StyledNavbar = styled.div`
   padding: 0px 40px 0px 0px;
   box-sizing: border-box;
   z-index: 1000;
+
+  @media (max-width: 550px) {
+    padding: 0 15px;
+  }
 `
 
 const NavbarLeft = styled.div`
@@ -103,12 +112,31 @@ const NavbarLeft = styled.div`
 
   transition: all 0.3s ease;
 
-  @media (max-width: 490px){
+  @media (max-width: 500px){
     transform: translateX(-300px);
   }
     
   @media (min-width: 850px){
     transform: translateX(-300px);
+  }
+`
+
+const NavbarLeftMini = styled.div`
+  display: flex;
+  position: absolute;
+  left: -150px;
+  width: 100;
+  min-width: 100px;
+  background-color: var(--main-gray);
+
+  transition: all 0.3s ease;
+
+  @media (max-width: 500px){
+    transform: translateX(150px);
+  }
+    
+  @media (min-width: 850px){
+    transform: translateX(-150px);
   }
 `
 

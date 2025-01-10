@@ -3,10 +3,10 @@ import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import Card from "./card";
 import { useEffect, useRef, useState } from "react";
 import { useDebounceFn } from "../../hooks/useDebounce";
-import { ClipLoader } from 'react-spinners';
+import { ClipLoader } from "react-spinners";
 import { useInView } from "react-intersection-observer";
 
-const CardList = ({ data, isPending, children}) => {
+const CardList = ({ data, isPending, children }) => {
   const [listX, setListX] = useState(-10);
   const [isDisabled, setIsDisabled] = useState(false);
   const [wrapperWidth, setWrapperWidth] = useState(0);
@@ -17,42 +17,43 @@ const CardList = ({ data, isPending, children}) => {
   const containerRef = useRef(null);
 
   const update = () => {
-    if (wrapperRef.current && containerRef.current){
+    if (wrapperRef.current && containerRef.current) {
       const wrapperSize = wrapperRef.current.getBoundingClientRect().width - 20;
-      const containerSize = containerRef.current.getBoundingClientRect().width
-      setWrapperWidth(wrapperSize)
-      setcontainerWidth(containerSize)
+      const containerSize = containerRef.current.getBoundingClientRect().width;
+      setWrapperWidth(wrapperSize);
+      setcontainerWidth(containerSize);
     }
-  }
+  };
 
   const debouncedUpdate = useRef(useDebounceFn(update, 50)).current;
 
   useEffect(() => {
     debouncedUpdate();
-    window.addEventListener("resize", debouncedUpdate) 
-  })
+    window.addEventListener("resize", debouncedUpdate);
+  });
 
   const { ref: leftRef, inView: leftInView } = useInView({
     threshold: 0.1,
-  })
+  });
 
   const { ref: rightRef, inView: rightInView } = useInView({
     threshold: 0.1,
-  })
+  });
 
-  useEffect(() => {         // 창 크기 조절로 인한 ListWrapper 위치 이탈 조정
-    if (timer){
+  useEffect(() => {
+    // 창 크기 조절로 인한 ListWrapper 위치 이탈 조정
+    if (timer) {
       clearTimeout(timer);
     }
-      
+
     const newTimer = setTimeout(() => {
-      if (leftInView){
+      if (leftInView) {
         setListX(0);
       }
-      if (rightInView){
+      if (rightInView) {
         setListX(() => {
           return containerWidth - wrapperWidth - 10;
-        })
+        });
       }
     }, 50);
 
@@ -62,45 +63,56 @@ const CardList = ({ data, isPending, children}) => {
       if (newTimer) {
         clearTimeout(newTimer);
       }
-    }
-  
-  }, [leftInView, rightInView, containerWidth, wrapperWidth])
+    };
+  }, [leftInView, rightInView, containerWidth, wrapperWidth]);
 
   const leftButtonHandler = () => {
-    if (wrapperWidth !== 0 && containerWidth !== 0){
+    if (wrapperWidth !== 0 && containerWidth !== 0) {
       setListX((prev) => {
-        setIsDisabled(true)
-        const tmp = (prev > -containerWidth) ? -10 : (prev + (((import.meta.env.VITE_CARD_WIDTH * 5) / 3) * parseInt(containerWidth/((import.meta.env.VITE_CARD_WIDTH * 5) / 3))))
+        setIsDisabled(true);
+        const tmp =
+          prev > -containerWidth
+            ? -10
+            : prev +
+              ((import.meta.env.VITE_CARD_WIDTH * 5) / 3) *
+                parseInt(
+                  containerWidth / ((import.meta.env.VITE_CARD_WIDTH * 5) / 3)
+                );
 
-        let newListX
-        
-        if (prev == -10)
-          newListX = containerWidth - wrapperWidth - 10
-          
-        else 
-          newListX = tmp
+        let newListX;
 
-        setTimeout(() => setIsDisabled(false), 300)
+        if (prev == -10) newListX = containerWidth - wrapperWidth - 10;
+        else newListX = tmp;
+
+        setTimeout(() => setIsDisabled(false), 300);
         return newListX;
       });
     }
   };
 
   const rightButtonHandler = () => {
-    if (wrapperWidth !== 0 && containerWidth !== 0){
+    if (wrapperWidth !== 0 && containerWidth !== 0) {
       setListX((prev) => {
-        setIsDisabled(true)
-        const tmp = (prev <= containerWidth - wrapperWidth) ? -10 : (prev - (((import.meta.env.VITE_CARD_WIDTH * 5) / 3) * (containerWidth ? parseInt(containerWidth / ((import.meta.env.VITE_CARD_WIDTH * 5) / 3)) : 0)))
+        setIsDisabled(true);
+        const tmp =
+          prev <= containerWidth - wrapperWidth
+            ? -10
+            : prev -
+              ((import.meta.env.VITE_CARD_WIDTH * 5) / 3) *
+                (containerWidth
+                  ? parseInt(
+                      containerWidth /
+                        ((import.meta.env.VITE_CARD_WIDTH * 5) / 3)
+                    )
+                  : 0);
 
-        let newListX
-        
-        if (-tmp <= wrapperWidth - containerWidth)
-          newListX = tmp
-          
+        let newListX;
+
+        if (-tmp <= wrapperWidth - containerWidth) newListX = tmp;
         else if (-tmp > wrapperWidth - containerWidth)
-          newListX = containerWidth - wrapperWidth - 10
+          newListX = containerWidth - wrapperWidth - 10;
 
-        setTimeout(() => setIsDisabled(false), 300)
+        setTimeout(() => setIsDisabled(false), 300);
         return newListX;
       });
     }
@@ -108,15 +120,19 @@ const CardList = ({ data, isPending, children}) => {
 
   return (
     <>
-    
       <MovieListContainer ref={containerRef}>
-      <ListTitle>{children}</ListTitle>
-        <ListButton $direction={'left'} $position={"left: 0"} onClick={leftButtonHandler} disabled={isDisabled}>
+        <ListTitle>{children}</ListTitle>
+        <ListButton
+          $direction={"left"}
+          $position={"left: 0"}
+          onClick={leftButtonHandler}
+          disabled={isDisabled}
+        >
           <IoIosArrowBack size={"20px"} />
         </ListButton>
         {isPending ? (
           <ClipLoaderWrapper>
-            <ClipLoader color={"white"} size={"20px"}/>
+            <ClipLoader color={"white"} size={"20px"} />
           </ClipLoaderWrapper>
         ) : (
           <>
@@ -127,11 +143,15 @@ const CardList = ({ data, isPending, children}) => {
               ))}
               <RefDiv ref={rightRef}></RefDiv>
             </ListWrapper>
-            
           </>
         )}
-        
-        <ListButton $direction={'right'} $position={"right: 0"} onClick={rightButtonHandler} disabled={isDisabled}>
+
+        <ListButton
+          $direction={"right"}
+          $position={"right: 0"}
+          onClick={rightButtonHandler}
+          disabled={isDisabled}
+        >
           <IoIosArrowForward size={"20px"} />
         </ListButton>
       </MovieListContainer>
@@ -150,6 +170,11 @@ const ListTitle = styled.h1`
   color: white;
 
   margin: 15px;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+    margin: 20px 0 5px 0;
+  }
 `;
 
 const MovieListContainer = styled.div`
@@ -164,12 +189,16 @@ const MovieListContainer = styled.div`
   background: linear-gradient(to top, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0));
 
   overflow: hidden;
+  
+  @media (max-width: 1024px) {
+    height: 250px;
+  }
 `;
 
 const ClipLoaderWrapper = styled.div`
   width: 100%;
   text-align: center;
-`
+`;
 
 const ListWrapper = styled.div`
   display: flex;
@@ -194,7 +223,7 @@ const ListButton = styled.button`
 
   border: 0;
   opacity: 0;
-  
+
   color: rgba(0, 0, 0, 0);
 
   background-color: rgba(0, 0, 0, 0);
@@ -202,9 +231,13 @@ const ListButton = styled.button`
   cursor: pointer;
 
   z-index: 10;
-  background: linear-gradient(to ${prop => prop.$direction}, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
-  
-  &:hover{
+  background: linear-gradient(
+    to ${(prop) => prop.$direction},
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 1)
+  );
+
+  &:hover {
     color: white;
     opacity: 1;
   }
@@ -213,5 +246,5 @@ const ListButton = styled.button`
 `;
 
 const RefDiv = styled.div`
-  min-widtH: 10px;
-`
+  min-width: 10px;
+`;

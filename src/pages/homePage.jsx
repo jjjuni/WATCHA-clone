@@ -70,8 +70,10 @@ function HomePage() {
             <MovieDetail>
               <MoviePoster $url={`${import.meta.env.VITE_TMDB_POSTER_URL}${mainMovie?.poster_path}`} onClick={() => navigate(`/moviePage/${mainMovie.id}`)}/>
               <MovieTitle>
-                <RefreshButton><FaRedoAlt onClick={() => changeMovie()} size={'35px'}/></RefreshButton>
-                {mainMovie?.title} 
+                <RefreshButton><FaRedoAlt onClick={() => changeMovie()}/></RefreshButton>
+                <h1 className="truncate w-[100%]">
+                  {mainMovie?.title} 
+                </h1>
               </MovieTitle>
               <DetailBox>
                 <Detail>
@@ -129,6 +131,11 @@ const MovieDetail = styled.div`
   box-sizing: border-box;
 
   aspect-ratio: 2/0.7;
+
+  @media (max-width: 1024px) {
+    min-height: 100px;
+    aspect-ratio: 1/0.7;
+  }
 `;
 
 const MoviePoster = styled.div`
@@ -199,6 +206,7 @@ const MovieTitle = styled.h1`
   color: white;
   font-family: Pretendard-Regular;
   font-size: 50px;
+  font-weight: bold;
 
   width: 75%;
 
@@ -208,7 +216,7 @@ const MovieTitle = styled.h1`
   z-index: 10;
 
   white-space: nowrap;
-  overflow-x: hidden;
+  overflow: hidden;
   text-overflow: ellipsis;
 
   box-sizing: border-box;
@@ -217,7 +225,16 @@ const MovieTitle = styled.h1`
 
   @media (max-width: 1200px) {
     width: 100%;
+    padding: 0 40px 0 40px;
   }
+
+  @media (max-width: 1024px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 370px) {
+    font-size: 20px;
+  }  
 
   transition: all 0.3s ease;
 `;
@@ -225,11 +242,19 @@ const MovieTitle = styled.h1`
 const RefreshButton = styled.p`
   align-content: center;
   margin: 0 25px 0 0;
-
+  font-size: 35px;
   cursor: pointer;
 
   &:hover{
     transform: rotate(270deg);
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 25px;
+  }
+
+  @media (max-width: 370px) {
+    font-size: 20px;
   }
 
   transition: all 0.6s ease;
@@ -266,7 +291,17 @@ const Summary = styled.p`
 
   @media (max-width: 1200px) {
     width: 100%;
+    padding: 0 40px 0 40px;
   }
+  
+  @media (max-width: 1024px) {
+    font-size: 13px;
+    margin: 10px 0 10px;
+  }
+
+  @media (max-width: 370px) {
+    font-size: 10px;
+  } 
 
   user-select: none;
 
@@ -277,10 +312,22 @@ const Summary = styled.p`
   text-overflow: ellipsis;
 
   transition: all 0.3s ease;
+
+  @media (max-width: 400px) {
+    -webkit-line-clamp: 3;
+  }
 `;
 
 const Info = styled.p`
   color: ${(props) => props.$color || "#BABAC1"};
   font-family: Pretendard-Regular;
   font-size: 15px;
+
+  @media (max-width: 1024px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 370px) {
+    font-size: 10px;
+  } 
 `;
