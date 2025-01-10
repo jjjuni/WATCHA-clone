@@ -12,7 +12,7 @@ const Credit = ({info}) => {
       )}
       
       <NameBox>
-        <Name $fontSize={'15px'}>{info?.name}</Name>
+        <Name>{info?.name}</Name>
         {info.character?(
           <Name $color={'#84868d;'}>{info?.character}</Name>
         ) : (
@@ -53,12 +53,22 @@ const Infos = styled.div`
 `
 
 const Image = styled.img`
-  width: 75px;
+  min-width: 75px;
   height: 75px;
   object-fit: cover;
   background-color: black;
   border-radius: 100px;
   cursor: pointer;
+
+  @media (max-width: 1024px) {
+    min-width: 60px;
+    height: 60px;
+  }
+
+  @media (max-width: 425px) {
+    min-width: 50px;
+    height: 50px;
+  }  
 `
 
 const NameBox = styled.div`
@@ -71,9 +81,32 @@ const NameBox = styled.div`
 
 const Name = styled.p`
   color: ${props => props.$color || 'white'};
-  font-size: ${props => props.$fontSize || '13px'};
+  font-size: 15px;
   font-family: Pretendard-Regular;
   margin: 3px;
+
+  @media (max-width: 1024px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 11px;
+  }  
+`
+
+const RoleName = styled.p`
+  color: ${props => props.$color || 'white'};
+  font-size: 13px;
+  font-family: Pretendard-Regular;
+  margin: 3px;
+
+  @media (max-width: 1024px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 10px;
+  }  
 `
 
 Credit.propTypes ={

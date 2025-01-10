@@ -43,6 +43,7 @@ export const Title = styled.h1`
 
 export const SignTitle = styled.h1`
   font-family: ${props => props.$font || 'Pretendard-Regular'};
+  font-weight: bold;
   width: 100%;
   text-align: center;
   margin: 0 0 20px 0;
@@ -50,6 +51,14 @@ export const SignTitle = styled.h1`
   color: #fff;
   box-sizing: border-box;
   font-size: 28px;
+
+  @media (max-width: 1024px) {
+    font-size: 25px;
+  }
+    
+  @media (max-width: 500px) {
+    font-size: 23px;
+  }
 `
 
 export const Loading = styled.div`
@@ -88,6 +97,23 @@ export const InputDiv = styled.div`
   overflow: hidden;
 
   box-sizing: content-box;
+
+  @media (max-width: 1024px) {
+    width: 75%;
+  }
+
+  @media (max-width: 500px) {
+    height: 40px;
+  }
+
+  @media (max-width: 400px) {
+    width: 80%;
+  }
+  
+  @media (max-width: 350px) {
+    width: 85%;
+    height: 36px;
+  }
 `
 
 export const InputText = styled.input`
@@ -106,6 +132,15 @@ export const InputText = styled.input`
   height: 100%;
 
   box-sizing: border-box;
+
+  @media (max-width: 500px) {
+    font-size: 14px;
+    padding: 0 0 0 7px;
+  }
+
+  @media (max-width: 350px) {
+    font-size: 13px;
+  }
 `
 
 export const ValidationIcon = styled.img`
@@ -137,6 +172,23 @@ export const SubmitButton = styled.button`
 
   &:hover{
     background-color: #FF0558;
+  }
+
+  @media (max-width: 1024px) {
+    width: 75%;
+  }
+
+  @media (max-width: 500px) {
+    height: 40px;
+  }
+
+  @media (max-width: 400px) {
+    width: 80%;
+  }
+  
+  @media (max-width: 350px) {
+    width: 85%;
+    height: 36px;
   }
 `
 

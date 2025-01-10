@@ -136,8 +136,21 @@ const Title = styled.h1`
   color: white;
   font-family: Pretendard-Regular;
   font-size: 40px;
+  font-weight: bold;
 
-  margin: 100px 40px 10px;
+  padding: 100px 40px 10px;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 20px;
+  }  
 
   z-index: 10;
 `
@@ -174,12 +187,29 @@ const Summary = styled.p`
   @media(max-width: 850px){
     width: 100%;
   }
+  
+  @media (max-width: 1024px) {
+    font-size: 13px;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 10px;
+  } 
 `
 
 const Info = styled.p`
   color: ${props => props.$color || '#BABAC1'};
   font-family: Pretendard-Regular;
   font-size: 15px; 
+  
+  @media (max-width: 1024px) {
+    font-size: 13px;
+    margin: 10px 0 10px;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 10px;
+  } 
 `
 
 const CreditContainer = styled.div`
@@ -224,5 +254,14 @@ const CreditTitle = styled.h1`
   color: ${props => props.$color || 'white'};
   font-family: Pretendard-Regular;
   font-size: 25px;
+  font-weight: bold;
   margin: 30px;
+
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 425px) {
+    font-size: 15px;
+  }  
 `
