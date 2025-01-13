@@ -67,6 +67,6 @@ https://github.com/user-attachments/assets/a1603454-d8be-415b-86a9-71bdc3c0717d
 
 ### 반응형 디자인 구현
 
-https://github.com/user-attachments/assets/b3970855-b0c4-448e-92b6-2fe80dd88878
+https://github.com/user-attachments/assets/6b375d3f-da57-4493-a329-8f5069d67585
 
 <br>
