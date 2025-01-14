@@ -13,22 +13,16 @@ import Movieslayout from "./layout/movies-layout.jsx";
 import "./App.css";
 import "./font.css";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, } from "react-router-dom";
 
 import ScrollToTop from "./scroll-to-top.jsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { LogContextProvider } from "./context/logContext.jsx";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient()
 
 function App() {
-
-  const pageData = {
-    title: '왓챠',
-    description: '전 세계 영화 정보',
-  }
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -83,20 +77,13 @@ function App() {
   ]);
 
   return (
-    <>
-      <Head>
-        <meta name="description" content={pageData.description} />
-        <meta property="og:title" content={pageData.title} />
-        <meta property="og:description" content={pageData.description} />
-      </Head>
-      <QueryClientProvider client={queryClient}>
-        <LogContextProvider>
-          <RouterProvider router={router} />
-        </LogContextProvider>
+    <QueryClientProvider client={queryClient}>
+      <LogContextProvider>
+        <RouterProvider router={router} />
+      </LogContextProvider>
 
-        <ReactQueryDevtools initialIsOpen={true} />
-      </QueryClientProvider>
-    </>
+      <ReactQueryDevtools initialIsOpen={true} />
+    </QueryClientProvider>
   );
 }
 
